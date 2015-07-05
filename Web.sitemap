@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+    <siteMapNode url="Default.htm" title="首页"  description="">
+         
+
+      <siteMapNode url="Blog.aspx" title="博客">
+        <siteMapNode url="newsarticle.aspx" title="文章"/>
+        <siteMapNode url="postbord.aspx" title="发表文章"  description="" />
+        <siteMapNode url="editpage.aspx" title="修改文章"  description="" />    
+      </siteMapNode>
+         <siteMapNode url="Liuyan.aspx" title="留言"  description="" />
+         <siteMapNode url="alumb.aspx" title="相册"  description="" >
+             <siteMapNode url="admin/MangerAlumb.aspx" title="管理相册" description="">
+                   <siteMapNode url="admin/ManagerPhoto.aspx" title="管理照片" description=""/>
+              </siteMapNode>
+         </siteMapNode>
+      <siteMapNode url="cnboke.aspx" title="博客园最新博文" description=""/>
+      </siteMapNode>
+</siteMap>

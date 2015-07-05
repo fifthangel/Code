@@ -1,0 +1,215 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title>omycle学习博客</title>
+    <link href="StyleSheet.css" rel="stylesheet" type="text/css" />
+   <script language="javascript" type="text/javascript"> 
+<!-- 
+//查找网页内宽度太大的图片进行缩放以及PNG纠正 
+function ReImgSize(obj){ 
+//alert(obj); 
+var imgArr=document.getElementById("content").getElementsByTagName("IMG"); 
+//alert(1); 
+for (i=0;i<imgArr.length;i++) 
+{ 
+if (document.all) 
+{ 
+if (imgArr[i].width>600) 
+{ 
+a=imgArr[i].width/imgArr[i].height
+imgArr[i].width="700" 
+imgArr[i].height=imgArr[i].width/a
+
+imgArr[i].outerHTML='<a href="'+imgArr[i].src+'" target="_blank" title="在新窗口打开图片">'+imgArr[i].outerHTML+'</a>' 
+} 
+} 
+else 
+{ 
+if (imgArr[i].width>600) 
+{ 
+imgArr[i].title="在新窗口打开图片" 
+imgArr[i].style.cursor="pointer" 
+imgArr[i].onclick=function(e){window.open(this.src)} 
+} 
+} 
+} 
+} 
+window.onload = function() 
+{ 
+ReImgSize("content"); 
+} 
+//--> 
+</script> 
+</head>
+<body>
+    <form id="form1" runat="server">
+        <table  align="center" style="border:1px solid #cccccc;" width=980px>
+        <tr>
+        <td colspan="2" >        
+        <table width="100%" height=100px>
+        <tr>
+        <td height=90px style=" font-size:14px;"> 怀揣着希望，随着风，尽情地摇曳风姿，努力地，狠狠地<br /></td>
+        </tr>
+        <tr>
+        <td align="right"> 
+        <asp:SiteMapPath ID="SiteMapPath1" runat="server"  PathSeparator=">">
+                <PathSeparatorStyle Font-Bold="True" ForeColor="#5D7B9D" />
+                <CurrentNodeStyle ForeColor="#333333" />
+                <NodeStyle Font-Bold="True" ForeColor="#7C6F57" />
+                <RootNodeStyle Font-Bold="True" ForeColor="#5D7B9D" />
+            </asp:SiteMapPath></td>
+        </tr>
+        </table>        
+            <div class="line">&nbsp;</div>
+        </td></tr>
+        <tr>
+        <td  colspan=2 width="100%" >        
+	<div id="tab">
+        <asp:Menu ID="Menu1" runat="server" DataSourceID="SiteMapDataSource1" orientation="Horizontal" 
+				maximumdynamicdisplaylevels="0" 
+				skiplinktext="" 
+				staticdisplaylevels="2" PathSeparator=" | " >
+        
+            
+        </asp:Menu>
+	</div>
+	<div class="line2">&nbsp;</div>
+        </tr>
+            <tr>
+                <td width="80%" valign="top" style="border-right:1px dotted #cccccc; height: 526px;">
+       <div id="content"> <asp:contentplaceholder id="ContentPlaceHolder1" runat="server">
+        </asp:contentplaceholder>
+        </div>
+                    <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" />
+                </td>
+                <td valign=top width="20%" style="height: 526px">
+                 <table border=0 cellspacing=2 width="100%" class="clcss">   
+                 <tr><th align="left" colspan=2>个人档案：</th></tr>                     
+                           <tr><td>
+                               <img src="images/13f56f6d79636c652b00.jpg" />
+                            </td>
+                            <td>
+                                姓名：<br />
+                                李海峰<br />
+                                学号：<br />
+                                051124050</td>
+                            </tr>
+                            <tr><th colspan=2>
+                                <asp:LoginView ID="LoginView1" runat="server" OnViewChanged="LoginView1_ViewChanged">
+                                    <LoggedInTemplate>
+                                        <asp:LoginName ID="LoginName1" runat="server" />
+                                        <asp:LoginStatus ID="LoginStatus1" runat="server" />
+                                    </LoggedInTemplate>
+                                    <AnonymousTemplate>
+                                        &nbsp;<asp:Login ID="Login1" runat="server">
+                                        </asp:Login>
+                                    </AnonymousTemplate>
+                                </asp:LoginView>
+                                <a href="http://sighttp.qq.com/cgi-bin/check?sigkey=6557ef6c9130daddd40e83c1459b8f035344e3a5425e37ef2d18bb71841d3ddf"; target=_blank; onclick="var tempSrc='http://sighttp.qq.com/wpa.js?rantime='+Math.random()+'&sigkey=6557ef6c9130daddd40e83c1459b8f035344e3a5425e37ef2d18bb71841d3ddf';var oldscript=document.getElementById('testJs');var newscript=document.createElement('script');newscript.setAttribute('type','text/javascript'); newscript.setAttribute('id', 'testJs');newscript.setAttribute('src',tempSrc);if(oldscript == null){document.body.appendChild(newscript);}else{oldscript.parentNode.replaceChild(newscript, oldscript);}return false;"></a></th></tr> 
+                            </table>
+                            <table border=0 cellspacing=2 width="100%" >
+                             <tr><th style="width: 68px; height: 20px">栏目导航：</th></tr>
+                            </table>
+                    &nbsp;
+                    <asp:LoginView ID="LoginView2" runat="server" OnViewChanged="LoginView2_ViewChanged" >
+                        <LoggedInTemplate>
+                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="ID"
+                        DataSourceID="SqlDataSource2"  ShowHeader=False Width="100%" CellPadding="4" ForeColor="#333333" GridLines="None">
+                        <Columns>
+                            <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
+                            <asp:TemplateField HeaderText="LeiBie" SortExpression="LeiBie">
+                                <EditItemTemplate>
+                                    <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("LeiBie") %>'></asp:TextBox>
+                                </EditItemTemplate>
+                                <ItemTemplate>
+                                    <a href="Blog.aspx?leibie=<%# Eval("id")%>"><%# Eval("LeiBie") %></a>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                        </Columns>
+                        <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                        <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                        <EditRowStyle BackColor="#999999" />
+                        <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                        <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                        <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                        <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                    </asp:GridView>
+                            &nbsp;
+                            <asp:DetailsView ID="DetailsView1" runat="server" DataSourceID="SqlDataSource2"
+                                Height="100px" Width="100%" >
+                                <Fields>
+                                    <asp:CommandField ShowInsertButton="True" />
+                                </Fields>
+                            </asp:DetailsView>
+                        </LoggedInTemplate>
+                        <AnonymousTemplate>
+                    <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource2" Width="100%" DataKeyField="ID" CellPadding="4" ForeColor="#333333">
+                        <ItemTemplate>                          
+                            <a href="Blog.aspx?leibie=<%# Eval("ID") %>"><%# Eval("LeiBie") %></A>
+                            <br />
+                        </ItemTemplate>
+                        <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                        <SelectedItemStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
+                        <AlternatingItemStyle BackColor="White" />
+                        <ItemStyle BackColor="#E3EAEB" />
+                        <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                    </asp:DataList>
+                        </AnonymousTemplate>
+                    </asp:LoginView>
+                    &nbsp;&nbsp;
+                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>"
+                        DeleteCommand="DELETE FROM [LeiBieTable] WHERE [ID] = @ID" InsertCommand="INSERT INTO [LeiBieTable] ([LeiBie]) VALUES (@LeiBie)"
+                        SelectCommand="SELECT * FROM [LeiBieTable]" UpdateCommand="UPDATE [LeiBieTable] SET [LeiBie] = @LeiBie WHERE [ID] = @ID">
+                        <DeleteParameters>
+                            <asp:Parameter Name="ID" Type="Int32" />
+                        </DeleteParameters>
+                        <UpdateParameters>
+                            <asp:Parameter Name="LeiBie" Type="String" />
+                            <asp:Parameter Name="ID" Type="Int32" />
+                        </UpdateParameters>
+                        <InsertParameters>
+                            <asp:Parameter Name="LeiBie" Type="String" />
+                        </InsertParameters>
+                    </asp:SqlDataSource>
+                    &nbsp;<br />
+                        
+                        <table width="100%" class="clcsss">
+                        <tr><th align="left" style="height: 20px">最新评论:</th></tr>
+                <tr><td>
+                    <asp:DataList ID="DataList_pinglun" runat="server" DataSourceID="SqlDataSource_pl" Width="100%">
+                        <ItemTemplate>
+                           
+                            <tr><td class="clcss_pl" ><a href="newsarticle.aspx?id=<%# Eval("g_id") %>"> <%# Eval("g_Content") %></a></td></tr>
+                         
+                        </ItemTemplate>
+                    </asp:DataList><asp:SqlDataSource ID="SqlDataSource_pl" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>"
+                        SelectCommand="SELECT TOP (8) g_Content,g_id FROM gentieTable ORDER BY g_time DESC"></asp:SqlDataSource>
+                </td></tr>
+                </table>
+                 <table width="100%" class="clcsss">
+                        <tr><th align="left" style="height: 20px">最新留言:</th></tr>
+                <tr><td>
+                    <asp:DataList ID="DataList2" runat="server" DataSourceID="SqlDataSource_ly" Width="100%">
+                        <ItemTemplate>
+                           
+                            <tr><td class="clcss_pl" > <%# Eval("liuyan_Content") %></td></tr>
+                         
+                        </ItemTemplate>
+                    </asp:DataList><asp:SqlDataSource ID="SqlDataSource_ly" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>"
+                        SelectCommand="SELECT TOP (8) liuyan_content FROM liuyantable ORDER BY liuyan_time DESC"></asp:SqlDataSource>
+                </td></tr>
+                </table>
+                </td>
+                
+            </tr>
+          <tr><td colspan=2 align="center" class="clcsss"><br /><a href="http://www.51aspx.com/CV/MVCBlog" target="_blank" title="Asp.net源码下载专业站">download from 51aspx.com</a>
+</td></tr>
+        </table>
+    <div>
+        &nbsp;</div>
+    </form>
+</body>
+</html>

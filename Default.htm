@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<HTML><HEAD><TITLE>omycle's学习博客</TITLE>
+<META http-equiv=Content-Type content=text/html;charset=gb2312>
+<STYLE type=text/css>BODY {
+TEXT-ALIGN: center
+}
+TABLE {
+BORDER-RIGHT: #eeeeee 1px solid; PADDING-RIGHT: 0px; BORDER-TOP: #eeeeee 1px solid; PADDING-LEFT: 0px; PADDING-BOTTOM: 3px; BORDER-LEFT: #eeeeee 1px solid; PADDING-TOP: 3px; BORDER-BOTTOM: #eeeeee 5px solid
+}
+.icon TD {
+BACKGROUND-IMAGE: url(images/svc_sprite_all.gif); WIDTH: 50px; HEIGHT: 37px
+}
+.capt TD {
+PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 2px; FONT: 11px verdana; PADDING-TOP: 2px
+}
+.a {
+BACKGROUND-POSITION-Y: 0px
+}
+.b {
+BACKGROUND-POSITION-Y: -37px
+}
+.c {
+BACKGROUND-POSITION-Y: -74px
+}
+.d {
+BACKGROUND-POSITION-Y: -111px
+}
+.e {
+BACKGROUND-POSITION-Y: -148px
+}
+.f {
+BACKGROUND-POSITION-Y: -185px
+}
+.g {
+BACKGROUND-POSITION-Y: -222px
+}
+.f1 {
+BACKGROUND-POSITION-X: 0px
+}
+.f2 {
+BACKGROUND-POSITION-X: -51px
+}
+.f3 {
+BACKGROUND-POSITION-X: -101px
+}
+.f4 {
+BACKGROUND-POSITION-X: -153px
+}
+.f5 {
+BACKGROUND-POSITION-X: -205px
+}
+.f6 {
+BACKGROUND-POSITION-X: -257px
+}
+.f7 {
+BACKGROUND-POSITION-X: -309px
+}
+</STYLE>
+<style>body,td,a,p,.h{font-family:arial,sans-serif}
+a:visited{color:#00c}
+a{color:#00c}
+a{text-decoration:none}
+a:hover{color:#36c}
+</style>
+
+<SCRIPT language=javascript>
+window.onload=function(){
+var t=document.getElementsByTagName('table')[0];
+var cs=t.rows[1].cells,ct=t.rows[0].cells;
+for(var i=0;i<cs.length;i++)
+    cssAni(cs[i],ct[i],7);
+}
+function cssAni(osrc,otarget,num,duration){
+var t=null,c=1,d=0,n=0,i=Math.floor((duration||300)/num);
+var s=otarget.className.replace(/.$/,''),r=/over/;
+osrc.onmouseover=osrc.onmouseout=function(e){
+    n=r.test((e||event).type)?1:-1;
+    if(!t) t=setInterval(function(){
+      if((c==1||c==num)&&((d==n||c+n<1)||!(d=n)))
+          return clearInterval(t),t=null;
+      otarget.className=s+(c+=d);
+    },i);
+};
+}
+</SCRIPT>
+
+<META content="MSHTML 6.00.2900.2995" name=GENERATOR></HEAD>
+<BODY>
+<TABLE style=" margin-top:300px">
+<TBODY>
+<TR class=icon>
+    <TD class="a f1" style="height: 37px"></TD>
+    <TD class="b f1" style="height: 37px"></TD>
+    <TD class="c f1" style="height: 37px"></TD>
+    <TD class="d f1" style="height: 37px"></TD>
+   </TR>
+<TR class=capt>
+    <TD><A 
+    href="Blog.aspx">博客</A></TD>
+    <TD><A 
+    href="alumb.aspx">相册</A></TD>
+    <TD><A 
+    href="cnboke.aspx">博客园</A></TD>
+    <TD><A 
+    href="liuyan.aspx">留言</A></TD>
+   </TR>
+   </TBODY></TABLE>
+</BODY></HTML>
